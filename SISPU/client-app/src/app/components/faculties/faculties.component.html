@@ -1,0 +1,34 @@
+<div class="container" style ="margin-bottom: 20px;">
+        <div class="row">
+            <div *ngIf="source==true">  <a class="btn btn-secondary disabled"  (click)="DownloadFaculties()" style ="margin-left: 15px;"  role="button"> Загрузить факультеты </a> </div>
+            <div *ngIf="source!=true">  <a class="btn btn-secondary "  (click)="DownloadFaculties()" style ="margin-left: 15px;"  role="button"> Загрузить факультеты </a> </div>
+            <div *ngIf="source==true"> <a class="btn btn-secondary disabled"  (click)="UploadFaculties()" style ="margin-left: 20px;" role="button"> Сохранить факультеты </a> </div>
+            <div *ngIf="source!=true"> <a class="btn btn-secondary"  (click)="UploadFaculties()" style ="margin-left: 20px;" role="button"> Сохранить факультеты </a> </div>
+        </div>
+  </div>
+
+  
+
+<div class="container" >
+        <div class="card text-white bg-dark mb-3">   
+            <div class="card-body">
+        <div *ngIf="jsonfaculties && jsonfaculties.length > 0; else elseBlock">
+            <div *ngFor="let jsonfaculty of jsonfaculties; trackBy: trackById">
+
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <app-faculty  [jsonfaculty]="jsonfaculty" [source]="source" (jsonfacultyDeleted)="deleteFromList($event)"></app-faculty>
+               </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #elseBlock>
+    <div class="sorry-block">{{Loading}}</div>
+  </ng-template>
+</div>
+
+<!-- <app-infinite-scroll [newResultsService]="searchPositionService"></app-infinite-scroll> -->

@@ -1,0 +1,287 @@
+
+
+<div id="accordion">
+  <div class="card text-white bg-dark mb-3">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <div class="row">
+            <a class="btn btn-link"  (click)="Check()" style ="color: text-white" data-toggle="collapse" attr.data-target="#{{teacher.teacher_name}}" aria-expanded="true" aria-controls="collapseOne">
+                {{teacher.teacher_name}}
+              </a>
+              <div *ngIf="edit==true && source==true">  <a class="btn btn-secondary " ng-hide="edit" (click)="Edit2()" style ="margin-left: 15px;"  role="button"> Редактировать расписание </a> </div>
+            
+              <div *ngIf="edit2==true && source==true">  <a class="btn btn-secondary " ng-hide="edit" (click)="Edit2()" style ="margin-left: 15px;"  role="button"> Сохранить </a> </div> 
+              
+              <div *ngIf="edit2==true && source==true">  <a class="btn btn-secondary " ng-hide="edit" (click)="Edit2()" style ="margin-left: 15px;"  role="button"> Отмена </a> </div>
+            
+          </div>
+      </h5>
+    </div>
+
+    <div attr.id="{{teacher.teacher_name}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+
+        <div *ngIf="timetable.days && timetable.days.length > 0">
+          <div *ngFor="let day of timetable.days">
+            <div *ngIf=" day.lessons.length>0 ">
+                <div *ngIf="day.weekday==1 "> 
+     
+                  <div *ngIf=" day.lessons[0].parity==2"> 
+     
+                    <h5 class="card-title" style="color:grey">Первая неделя </h5>
+         
+</div>
+<div *ngIf=" day.lessons[0].parity==1"> 
+                    
+  <h5 class="card-title" style="color:grey">Вторая неделя </h5>
+
+</div>
+</div>
+                                        
+<div *ngIf="day.weekday==pday && day.lessons[0].parity==pparity" class="card bg-info mb-3" style="margin-bottom:10px">
+  <div class="card-body"> 
+            <h5 class="card-title" style="color:black"> 
+                    <div *ngIf="day.weekday==1"> 
+                          Понедельник 
+                      </div>
+                      <div *ngIf="day.weekday==2"> 
+                            Вторник 
+                        </div>
+                        <div *ngIf="day.weekday==3"> 
+                                Среда 
+                            </div>
+                            <div *ngIf="day.weekday==4"> 
+                                    Четверг 
+                                </div>
+                                <div *ngIf="day.weekday==5"> 
+                                        Пятница 
+                                    </div>
+                                    <div *ngIf="day.weekday==6"> 
+                                            Суббота 
+                                        </div>  </h5>          
+    <div class="card-text">   
+    <div *ngIf="day.lessons && day.lessons.length > 0"> 
+        <div *ngFor="let lesson of day.lessons">  
+              
+            <div class="card border-info mb-3">   
+                <div class="card-body">
+            
+            <p *ngIf="edit2==false && lesson.type==0" class="card-title" style="color:black"> {{lesson.subject}} {{lesson.time_start}} - {{lesson.time_end}} </p> <!-- {{lesson.parity}} --> <!-- {{lesson.date_start}} {{lesson.date_end}} -->  <!-- {{lesson.type}} -->
+            <p *ngIf="edit2==false && lesson.type==1" class="card-title" style="color:black"> {{lesson.subject}} - Лабораторная {{lesson.time_start}} - {{lesson.time_end}} </p> <!-- {{lesson.parity}} --> <!-- {{lesson.date_start}} {{lesson.date_end}} -->  <!-- {{lesson.type}} -->
+            <p *ngIf="edit2==false && lesson.type==2" class="card-title" style="color:black"> {{lesson.subject}} - Лекция {{lesson.time_start}} - {{lesson.time_end}} </p> <!-- {{lesson.parity}} --> <!-- {{lesson.date_start}} {{lesson.date_end}} -->  <!-- {{lesson.type}} -->
+            <p *ngIf="edit2==false && lesson.type==3" class="card-title" style="color:black"> {{lesson.subject}} - Семинар {{lesson.time_start}} - {{lesson.time_end}} </p> <!-- {{lesson.parity}} --> <!-- {{lesson.date_start}} {{lesson.date_end}} -->  <!-- {{lesson.type}} -->
+
+            <div *ngIf="edit2==true" >
+                <div class="row">  
+                   <div class="input-field">  <input id="{{lesson.subject}}" type="text" [(ngModel)]="lesson.subject">
+                    <label for="{{lesson.subject}}">{{lesson.subject}}</label> </div>
+                    <div class="input-field">  <input id="{{lesson.type}}" type="text" [(ngModel)]="lesson.type">
+                        <label for="{{lesson.type}}">{{lesson.type}}</label> </div>
+                    <div class="input-field"> <input id="{{lesson.time_start}}" type="text" [(ngModel)]="lesson.time_start">
+                    <label for="{{lesson.time_start}}">{{lesson.time_start}}</label> </div>
+                    <div class="input-field"> <input id="{{lesson.time_end}}" type="text" [(ngModel)]="lesson.time_end">
+                    <label for="{{lesson.time_end}}">{{lesson.time_end}}</label> </div>
+                   
+                </div>
+                </div>
+
+
+            <div class="row">
+
+                   
+              <p *ngIf="edit2==false" class="card-title" style="margin-left:20px; color:black"> {{lesson.date_start}} </p>
+                       
+            <div *ngIf="edit2==true" >
+                <div class="row">  
+                   <div class="input-field" style="margin-left:20px;">  <input id="{{lesson.date_start}}" type="text" [(ngModel)]="lesson.date_start">
+                    <label for="{{lesson.date_start}}">{{lesson.date_start}}</label> </div>
+                   
+                </div>
+                </div>
+                  
+                 
+                 <div *ngIf="lesson.auditories && lesson.auditories.length > 0">
+                  <div *ngFor="let auditory of lesson.auditories">
+                        <p *ngIf="edit2==false" class="card-title" style=" margin-left:10px; color:black"> {{auditory.auditory_name}} {{auditory.auditory_address}} </p>
+                        <div *ngIf="edit2==true" >
+                                <div class="row">  
+                                   <div class="input-field"style=" margin-left:10px;">  <input id="{{auditory.auditory_name}}" type="text" [(ngModel)]="auditory.auditory_name">
+                                    <label for="{{auditory.auditory_name}}">{{auditory.auditory_name}}</label> </div>
+                                    <div class="input-field" style=" margin-left:10px;">  <input id="{{auditory.auditory_address}}" type="text" [(ngModel)]="auditory.auditory_address">
+                                        <label for="{{auditory.auditory_address}}">{{auditory.auditory_address}}</label> </div>
+                                </div>
+                                </div>
+                 </div>
+                </div>
+            </div>
+
+</div>
+</div>
+            
+      </div>
+      </div>
+    </div>
+
+    
+
+
+
+  </div>
+</div>        
+
+
+
+
+
+
+<div *ngIf="day.weekday!=pday || day.lessons[0].parity!=pparity" class="card border-info mb-3" style="margin-bottom:10px">
+  <div class="card-body"> 
+            <h5 class="card-title" style="color:black"> 
+                    <div *ngIf="day.weekday==1"> 
+                          Понедельник 
+                      </div>
+                      <div *ngIf="day.weekday==2"> 
+                            Вторник 
+                        </div>
+                        <div *ngIf="day.weekday==3"> 
+                                Среда 
+                            </div>
+                            <div *ngIf="day.weekday==4"> 
+                                    Четверг 
+                                </div>
+                                <div *ngIf="day.weekday==5"> 
+                                        Пятница 
+                                    </div>
+                                    <div *ngIf="day.weekday==6"> 
+                                            Суббота 
+                                        </div>  </h5>
+      
+
+    <div class="card-text">   
+    <div *ngIf="day.lessons && day.lessons.length > 0"> 
+        <div *ngFor="let lesson of day.lessons">  
+              
+            <div class="card border-info mb-3">   
+                <div class="card-body">
+            
+            <p *ngIf="edit2==false && lesson.type==0" class="card-title" style="color:black">  {{lesson.subject}} {{lesson.time_start}} - {{lesson.time_end}} </p> <!-- {{lesson.parity}} --> <!-- {{lesson.date_start}} {{lesson.date_end}} -->  <!-- {{lesson.type}} -->
+            <p *ngIf="edit2==false && lesson.type==1" class="card-title" style="color:black">  {{lesson.subject}} - Лабораторная {{lesson.time_start}} - {{lesson.time_end}} </p> <!-- {{lesson.parity}} --> <!-- {{lesson.date_start}} {{lesson.date_end}} -->  <!-- {{lesson.type}} -->
+            <p *ngIf="edit2==false && lesson.type==2" class="card-title" style="color:black">  {{lesson.subject}} - Лекция {{lesson.time_start}} - {{lesson.time_end}} </p> <!-- {{lesson.parity}} --> <!-- {{lesson.date_start}} {{lesson.date_end}} -->  <!-- {{lesson.type}} -->
+            <p *ngIf="edit2==false && lesson.type==3" class="card-title" style="color:black"> {{lesson.subject}} - Семинар {{lesson.time_start}} - {{lesson.time_end}} </p> <!-- {{lesson.parity}} --> <!-- {{lesson.date_start}} {{lesson.date_end}} -->  <!-- {{lesson.type}} -->
+            <div *ngIf="edit2==true" >
+                <div class="row">  
+                   <div class="input-field">  <input id="{{lesson.subject}}" type="text" [(ngModel)]="lesson.subject">
+                    <label for="{{lesson.subject}}">{{lesson.subject}}</label> </div>
+                    <div class="input-field">  <input id="{{lesson.type}}" type="text" [(ngModel)]="lesson.type">
+                        <label for="{{lesson.type}}">{{lesson.type}}</label> </div>
+                    <div class="input-field"> <input id="{{lesson.time_start}}" type="text" [(ngModel)]="lesson.time_start">
+                    <label for="{{lesson.time_start}}">{{lesson.time_start}}</label> </div>
+                    <div class="input-field"> <input id="{{lesson.time_end}}" type="text" [(ngModel)]="lesson.time_end">
+                    <label for="{{lesson.time_end}}">{{lesson.time_end}}</label> </div>
+                   
+                </div>
+                </div>
+
+
+            <div class="row">
+              <p *ngIf="edit2==false" class="card-title" style="margin-left:20px; color:black"> {{lesson.date_start}} </p>
+                       
+            <div *ngIf="edit2==true" >
+                <div class="row">  
+                   <div class="input-field" style="margin-left:20px;">  <input id="{{lesson.date_start}}" type="text" [(ngModel)]="lesson.date_start">
+                    <label for="{{lesson.date_start}}">{{lesson.date_start}}</label> </div>
+                   
+                </div>
+                </div>
+                 <div *ngIf="lesson.auditories && lesson.auditories.length > 0">
+                  <div *ngFor="let auditory of lesson.auditories">
+                        <p *ngIf="edit2==false" class="card-title" style=" margin-left:10px; color:black"> {{auditory.auditory_name}} {{auditory.auditory_address}} </p>
+                        <div *ngIf="edit2==true" >
+                                <div class="row">  
+                                   <div class="input-field"style=" margin-left:10px;">  <input id="{{auditory.auditory_name}}" type="text" [(ngModel)]="auditory.auditory_name">
+                                    <label for="{{auditory.auditory_name}}">{{auditory.auditory_name}}</label> </div>
+                                    <div class="input-field" style=" margin-left:10px;">  <input id="{{auditory.auditory_address}}" type="text" [(ngModel)]="auditory.auditory_address">
+                                        <label for="{{auditory.auditory_address}}">{{auditory.auditory_address}}</label> </div>
+                                </div>
+                                </div>
+                 </div>
+                </div>
+            </div>
+
+</div>
+</div>
+            
+      </div>
+      </div>
+    </div>
+
+    
+
+
+
+  </div>
+</div>
+                </div>
+
+                                       
+                      
+          
+
+      </div>
+    </div>
+
+
+     <!--   <div *ngIf="timetables && timetables.length > 0">
+          <div *ngFor="let grouptimetable of timetables">
+
+        <div *ngIf="grouptimetable.days && grouptimetable.days.length > 0">
+          <div *ngFor="let day of grouptimetable.days">
+              
+ 
+            <div *ngIf="day.lessons && day.lessons.length > 0"> 
+                <div *ngFor="let lesson of day.lessons">     
+
+
+                        <div style="color:black; margin-left:20px"
+                         *ngIf="lesson.teachers && lesson.teachers.length > 0">
+                            <div *ngFor="let teacher1 of lesson.teachers">
+                              <div *ngIf = "teacher1.teacher_name == teacher.teacher_name">
+                                  <div class="card border-info mb-3">  
+                                      <div class="card-body">
+                                {{grouptimetable.group_name}} - {{day.weekday}} ({{lesson.parity}}) {{lesson.subject}} {{lesson.time_start}} - {{lesson.time_end}}
+                                  
+
+                                <div style="color:black" *ngIf="lesson.auditories && lesson.auditories.length > 0">
+                                      <div *ngFor="let auditory of lesson.auditories">
+                                          {{auditory.auditory_name}} {{auditory.auditory_address}} 
+                                     </div>
+                                    </div>
+</div>
+</div>
+                              </div>
+                                
+                            </div>
+                         </div>
+
+
+                
+                  </div>
+
+              </div>
+             
+          
+
+            
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>  -->
+
+
+    </div>
+  </div>
+</div>
+</div>

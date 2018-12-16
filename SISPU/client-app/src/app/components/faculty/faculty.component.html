@@ -1,0 +1,46 @@
+
+  <div id="accordion">
+        <div class="card border-info mb-3">   
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <a class="btn btn-link" style ="color:black" data-toggle="collapse" attr.data-target="#{{jsonfaculty.faculty_id}}" aria-expanded="true" aria-controls="collapseOne">
+                    <h5>(ID = {{jsonfaculty.faculty_id}}) {{jsonfaculty.faculty_name}}</h5>  
+                  </a>
+                </h5>
+              </div>
+              <div attr.id="{{jsonfaculty.faculty_id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="md-form active-pink-2 mb-3">
+                    <input class="form-control" type="text" (keyup)="Search(searchInput)" placeholder="Search" [(ngModel)]="searchInput" aria-label="Search">
+          
+                </div>
+                <div *ngIf="jsonfaculty.groups && jsonfaculty.groups.length > 0"> 
+                  <div *ngFor="let group of jsonfaculty.groups">        
+                      <div class="card border-info mb-3">   
+                  
+                          <div class="row">
+                      <p style="color:black; margin-left:30px; margin-top:10px;"> 
+                         {{group.group_name}}  (ID = {{group.group_id}}) </p>  
+            <div *ngIf="source!=true">  <a class="btn btn-secondary disabled"  (click)="Update()" style ="margin-left: 20px; margin-top:5px;  "  role="button"> Обновить расписание </a> </div>
+            <div *ngIf="source==true">  <a class="btn btn-secondary "  (click)="Update()" style ="margin-left: 20px;margin-top:5px; "  role="button"> Обновить расписание </a> </div>   
+            <div *ngIf="source!=true">  <a class="btn btn-secondary disabled"  (click)="Delete(group.group_name)" style ="margin-left: 20px; margin-top:5px; "  role="button"> Удалить расписание </a> </div>
+            <div *ngIf="source==true">  <a class="btn btn-secondary "  (click)="Delete(group.group_name)" style ="margin-left: 20px;margin-top:5px; "  role="button"> Удалить расписание </a> </div>                   
+</div>
+                  
+             </div>         
+                  </div>
+                </div>
+                </div>
+
+
+
+
+
+      </div> 
+      </div> 
+
+
+
+
+      
+

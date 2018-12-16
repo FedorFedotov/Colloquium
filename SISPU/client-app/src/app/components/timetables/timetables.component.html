@@ -1,0 +1,45 @@
+<div class="container" style ="margin-bottom: 20px;">
+    <div class="row">
+      
+        <div *ngIf="source==true">  <a class="btn btn-secondary disabled"  (click)="DownloadTimetables()" style ="margin-left: 15px;"  role="button"> Загрузить расписания групп </a> </div>
+        <div *ngIf="source!=true">  <a class="btn btn-secondary "  (click)="DownloadTimetables()" style ="margin-left: 15px;"  role="button"> Загрузить расписания групп </a> </div>
+        <div *ngIf="source==true"> <a class="btn btn-secondary disabled"  (click)="UploadTimetables()" style ="margin-left: 20px;" role="button"> Сохранить расписания групп </a> </div>
+        <div *ngIf="source!=true"> <a class="btn btn-secondary"  (click)="UploadTimetables()" style ="margin-left: 20px;" role="button"> Сохранить расписания групп </a> </div>
+    </div>
+  </div>
+  
+ 
+      <div *ngIf=" Status">
+          <div class="container" >
+              <div class="jumbotron" style =" padding: 20px;">        
+          {{Info}}      
+          </div>
+        </div>
+      </div>
+
+  <div class="container" >
+        
+    <div class="jumbotron" style =" padding: 20px;">
+
+        <div class="md-form active-pink-2 mb-3">
+                <input class="form-control" type="text" (keyup)="Search(searchInput)" placeholder="Search" [(ngModel)]="searchInput" aria-label="Search">
+        </div>
+      
+      <div *ngIf="grouptimetables && grouptimetables.length > 0; else elseBlock">
+          <div *ngFor="let grouptimetable of grouptimetables; trackBy: trackById">
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <app-timetable [grouptimetable]="grouptimetable" [source]="source" ></app-timetable>
+             </div>
+  </div>
+    </div>
+  
+
+    </div>
+
+    <ng-template #elseBlock>
+        <div class="sorry-block">{{Loading}}</div>
+        </ng-template>
+  </div>
+</div>
+  <!-- <app-infinite-scroll [newResultsService]="searchPositionService"></app-infinite-scroll> -->

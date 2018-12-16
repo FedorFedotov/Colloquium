@@ -1,0 +1,39 @@
+<div class="container" style ="margin-bottom: 20px;">
+</div>
+
+
+    <div *ngIf=" Status">
+        <div class="container" >
+            <div class="jumbotron" style =" padding: 20px;">        
+        {{Info}}      
+        </div>
+      </div>
+    </div>
+
+<div class="container" >
+      
+  <div class="jumbotron" style =" padding: 20px;">
+
+      <div class="md-form active-pink-2 mb-3">
+          <input class="form-control" type="text" (keyup)="Search(searchInput)" placeholder="Search" [(ngModel)]="searchInput" aria-label="Search">
+
+      </div>
+    
+      <div *ngIf="teachers && teachers.length > 0; else elseBlock">
+        <div *ngFor="let teacher of teachers; trackBy: trackById">
+          <div class="row">
+            <div class="col-12 col-md-12">
+                <div *ngIf="teacher.teacher_name!=''">
+              <app-teacher [teacher]="teacher" [source]="source" ></app-teacher>
+              </div>
+           </div>
+
+
+  </div>
+
+  <ng-template #elseBlock>
+      <div class="sorry-block">{{Loading}}</div>
+      </ng-template>
+</div>
+</div>
+<!-- <app-infinite-scroll [newResultsService]="searchPositionService"></app-infinite-scroll> -->

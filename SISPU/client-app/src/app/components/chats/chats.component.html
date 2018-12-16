@@ -1,0 +1,26 @@
+<div class="container" >
+      
+    <div class="jumbotron" style =" padding: 20px;">
+  
+        <div class="md-form active-pink-2 mb-3">
+            <input class="form-control" type="text" (keyup)="Search(searchInput)" placeholder="Search" [(ngModel)]="searchInput" aria-label="Search">
+  
+        </div>
+      
+  <div *ngIf="groupchats && groupchats.length > 0; else elseBlock">
+      <div *ngFor="let groupchat of groupchats; trackBy: trackById">
+
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <app-chat  [groupchat]="groupchat" (groupchatDeleted)="deleteFromList($event)"></app-chat>
+         </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<ng-template #elseBlock>
+<div class="sorry-block">{{Loading}}</div>
+</ng-template>
+</div>

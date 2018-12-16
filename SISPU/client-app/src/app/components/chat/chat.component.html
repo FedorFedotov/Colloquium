@@ -1,0 +1,70 @@
+
+
+  <div id="accordion">
+      <div class="card border-info mb-3">   
+          <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <a class="btn btn-link" (click)="Check()" style ="color:black" data-toggle="collapse" attr.data-target="#{{groupchat.id}}" aria-expanded="true" aria-controls="collapseOne">
+                  <h5>{{groupchat.groupchat_name}}  (ID = {{groupchat.id}})</h5>  
+                </a>
+              </h5>
+            </div>
+            <div attr.id="{{groupchat.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+              <div *ngIf="groupchat.id==2"> 
+                            
+                      <div class="card border-info mb-3">   
+                          <div class="card-title"  style="color:black; margin-left:15px; " >
+                         
+                          05.23.18 15:35 (2-42х) Иван 1: Добрый день, есть здесь кто онлайн? 
+         
+                  </div>
+             </div>    
+             
+             <div class="card border-info mb-3">   
+                <div class="card-title"  style="color:black; margin-left:15px; " >
+               
+                     05.23.18 15:36 (2-11хх) Иван 2: Да 
+
+        </div>
+   </div>  
+
+   <div class="card border-info mb-3">   
+      <div class="card-title"  style="color:black; margin-left:15px; " >
+     
+           05.23.18 15:36 (2-11хх) Иван 3: Да, чем могу помочь?  
+
+</div>
+</div>  
+
+<div class="card border-info mb-3">   
+    <div class="card-title"  style="color:black; margin-left:15px; " >
+   
+         05.23.18 15:36 (2-42х) Иван 1: Уже ничем 
+
+</div>
+</div>  
+                  
+                </div>
+          <!--     <div *ngIf="messages && messages.length > 0"> 
+                  <div *ngFor="let message of messages">           
+                      <div class="card border-info mb-3">   
+                          <div class="card-title">
+                          <div class="row">
+                      <p style="color:black; margin-left:30px; margin-top: 30px; padding-bottom:10px;"> 
+                         {{message.user.user_name}}: {{message.message_text}} </p>  
+           </div>
+                  </div>
+             </div>         
+                  </div>
+                </div>   -->
+                
+              
+              </div>
+
+
+
+
+
+    </div> 
+    </div> 

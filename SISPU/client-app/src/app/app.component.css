@@ -1,0 +1,16 @@
+.progress-fix{
+    margin: 0px;
+    height: 10px;
+    position: absolute;
+    top: 0px;
+    z-index:2;
+    background-color: #FFCA86;
+}
+
+.progress .indeterminate{
+    background-color: #ff8c00;
+}
+
+.content {
+    z-index: -1; position:relative;
+}
