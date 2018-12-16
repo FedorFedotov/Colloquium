@@ -48,35 +48,35 @@ namespace SISPU.Models
             List<GroupTimetable> grouptimetables = new List<GroupTimetable>();
 
             GroupTimetable g1 = new GroupTimetable();
-            g1.GroupName  = "Junior-Developer #1 (Akvelon, Иваново)";
+            g1.GroupName  = "Junior-Developer #1 (Akvelon, Inc. Иваново)";
             g1.GroupDepartment  = "Bootcamp";
             g1.GroupEmployment = "Полный день";
             g1.GroupTasks = 26;
             g1.GroupAdvice = 8;
 
             GroupTimetable g2 = new GroupTimetable();
-            g2.GroupName  = "Junior-Developer #2 (Akvelon, Иваново)";
+            g2.GroupName  = "Junior-Developer #2 (Akvelon, Inc. Иваново)";
             g2.GroupDepartment  = "Bootcamp";
             g2.GroupEmployment = "Неполный день";
             g2.GroupTasks = 30;
             g2.GroupAdvice = 3;
 
             GroupTimetable g3 = new GroupTimetable();
-            g3.GroupName  = "Junior-Developer #1 (Involta, Иваново)";
+            g3.GroupName  = "Junior-Developer #1 (Involta. Иваново)";
             g3.GroupDepartment  = "Bootcamp";
             g3.GroupEmployment = "Неполный день";
             g3.GroupTasks = 15;
             g3.GroupAdvice = 0;
 
             GroupTimetable g4 = new GroupTimetable();
-            g4.GroupName  = "Senior-Developer #1 (Akvelon, Иваново)";
+            g4.GroupName  = "Senior-Developer #1 (Akvelon, Inc. Иваново)";
             g4.GroupDepartment  = "SmartApp";
             g4.GroupEmployment = "Полный день";
             g4.GroupTasks = 19;
             g4.GroupAdvice = 10;
 
             GroupTimetable g5 = new GroupTimetable();
-            g5.GroupName  = "Senior-Developer #1 (Involta, Иваново)";
+            g5.GroupName  = "Senior-Developer #1 (Involta. Иваново)";
             g5.GroupDepartment  = "IntApp";
             g5.GroupEmployment = "Полный день";
             g5.GroupTasks = 20;

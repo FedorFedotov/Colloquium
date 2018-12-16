@@ -24,10 +24,10 @@ namespace SISPU.ViewModel
             groups = new List<GroupVM>();
             foreach (Group item in fac.Groups)
             {
-                if (item.IsDeleted == false)
-                {
-                    groups.Add(new GroupVM(item));
-                }
+                // if (item.IsDeleted == false)
+                // {
+                //     groups.Add(new GroupVM(item));
+                // }
             }
         }
 

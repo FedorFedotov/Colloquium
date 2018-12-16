@@ -19,8 +19,6 @@
                       <div class="card border-info mb-3">   
                   
                           <div class="row">
-                      <p style="color:black; margin-left:30px; margin-top:10px;"> 
-                         {{group.group_name}}  (ID = {{group.group_id}}) </p>  
             <div *ngIf="source!=true">  <a class="btn btn-secondary disabled"  (click)="Update()" style ="margin-left: 20px; margin-top:5px;  "  role="button"> Обновить расписание </a> </div>
             <div *ngIf="source==true">  <a class="btn btn-secondary "  (click)="Update()" style ="margin-left: 20px;margin-top:5px; "  role="button"> Обновить расписание </a> </div>   
             <div *ngIf="source!=true">  <a class="btn btn-secondary disabled"  (click)="Delete(group.group_name)" style ="margin-left: 20px; margin-top:5px; "  role="button"> Удалить расписание </a> </div>

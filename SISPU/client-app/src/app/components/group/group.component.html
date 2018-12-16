@@ -1,28 +1,21 @@
 
-  <div id="accordion">
-      <div class="card border-info mb-3">   
+    <div id="accordion">
+        <div class="card text-white bg-dark mb-3">
           <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <a class="btn btn-link" (click)="Check()" style ="color:black" data-toggle="collapse" attr.data-target="#{{group.group_id}}" aria-expanded="true" aria-controls="collapseOne">
-                  <h5>{{group.group_name}}  (ID = {{group.group_id}})</h5>  
-                </a>
-              </h5>
-            </div>
-            <div attr.id="{{group.group_id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-                      <div class="row">
-                          <div *ngIf="source!=true">  <a class="btn btn-secondary disabled"  (click)="CreateChat()" style ="margin-left: 20px; margin-top: 25px; padding-bottom:10px; "  role="button"> Создать чат </a> </div>
-                          <div *ngIf="source!=true">  <a class="btn btn-secondary disabled"  (click)="DeleteChat()" style ="margin-left: 20px; margin-top: 25px; padding-bottom:10px;"  role="button"> Удалить чат </a> </div>   
-                          <div *ngIf="source==true ">  <button class="btn btn-secondary " [disabled]="!cpossible" (click)="CreateChat()" style ="margin-left: 20px; margin-top: 25px; padding-bottom:10px; "  role="button"> Создать чат </button> </div>
-                          <div *ngIf="source==true ">  <button class="btn btn-secondary " [disabled]="!dpossible" (click)="DeleteChat()" style ="margin-left: 20px; margin-top: 25px; padding-bottom:10px;"  role="button"> Удалить чат </button> </div>    
-                                               </div>
-                
-              
+            <h5 class="mb-0">
+              <div class="row">
+                  <a class="btn btn-link" style ="color: text-white" (click)="Edit()" data-toggle="collapse" attr.data-target="#{{group.c_name}}" aria-expanded="true" aria-controls="collapseOne">
+                      {{group.c_name}}
+                    </a>
               </div>
-
-
-
-
-
-    </div> 
-    </div> 
+            </h5>
+          </div>
+      
+          <div attr.id="{{group.c_name}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <h5 class="card-title" style="color:black"> <p  class="card-title" style="color:black">Описание: {{group.c_desc }}  </p></h5>          
+                <a [routerLink]="['/jobs']" class="btn btn-secondary"   role="button"> Перейти к вакансиям </a>
+              </div>
+        </div>
+      </div>
+      </div>

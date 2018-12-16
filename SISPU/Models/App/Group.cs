@@ -12,17 +12,11 @@ namespace SISPU.Models
 
     public class Group
     {
-        public int Id { get; set; }
 
         public string GroupName { get; set; }
 
-        public string GroupId { get; set; }
+        public string GroupDesc { get; set; }
 
-        public bool IsDeleted { get; set; }
 
-        public Group()
-        {
-            IsDeleted = false;
-        }
     }
 }

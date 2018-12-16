@@ -41,46 +41,46 @@ namespace  SISPU.Models
 
             int id = 0;
 
-            foreach (FacultyVM G in GG)
-            {
+            // foreach (FacultyVM G in GG)
+            // {
 
 
-                var fac = context.FacultySet.SingleOrDefault(v => v.FacultyName == G.faculty_name && v.FacultyId == G.faculty_id);
-                if (fac == null)
-                {
-                    fac = new Faculty();
-                    fac.FacultyName = G.faculty_name;
-                    fac.FacultyId = G.faculty_id;
+            //     var fac = context.FacultySet.SingleOrDefault(v => v.FacultyName == G.faculty_name && v.FacultyId == G.faculty_id);
+            //     if (fac == null)
+            //     {
+            //         fac = new Faculty();
+            //         fac.FacultyName = G.faculty_name;
+            //         fac.FacultyId = G.faculty_id;
 
-                    foreach (GroupVM groupVM in G.groups)
-                    {
+            //         foreach (GroupVM groupVM in G.groups)
+            //         {
 
-                        var gro = context.GroupSet.SingleOrDefault(v => v.GroupName == groupVM.group_name && v.GroupId == groupVM.group_id);
-                        if (gro == null)
-                        {
-                            gro = new Group();
-                            gro.GroupName = groupVM.group_name;
-                            gro.GroupId = groupVM.group_id;
+            //             var gro = context.GroupSet.SingleOrDefault(v => v.GroupName == groupVM.group_name && v.GroupId == groupVM.group_id);
+            //             if (gro == null)
+            //             {
+            //                 gro = new Group();
+            //                 gro.GroupName = groupVM.group_name;
+            //                 gro.GroupId = groupVM.group_id;
 
-                            context.GroupSet.Add(gro);
-                            context.SaveChanges();
+            //                 context.GroupSet.Add(gro);
+            //                 context.SaveChanges();
                             
-                        }
+            //             }
 
-                        fac.Groups.Add(gro);
-
-
-                    }
+            //             fac.Groups.Add(gro);
 
 
-                    context.FacultySet.Add(fac);
-                    context.SaveChanges();
-                    id++;
-                }
+            //         }
 
 
-            }
-            return id;
+            //         context.FacultySet.Add(fac);
+            //         context.SaveChanges();
+            //         id++;
+            //     }
+
+
+            // }
+            return null;
         }
 
 

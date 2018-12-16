@@ -46,8 +46,9 @@ namespace SISPU.Controllers
         [HttpPost]
         public JsonResult PostGroups([FromBody] GroupVM[] GG)
         {
-            int? id = repository.Create(GG);
-            return Json(id);
+            // int? id = repository.Create(GG);
+            // return Json(id);
+            return Json(null);
         }
 
 

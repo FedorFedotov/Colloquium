@@ -14,6 +14,7 @@ import { Facultiesjson } from '../../classes/facultiesjson'
 import { UserTokenStorage } from '../../classes/user-token-storage';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Company } from '../../classes/company';
 
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/map';
@@ -29,14 +30,14 @@ import 'rxjs/add/operator/catch';
 })
 export class GroupsComponent implements OnInit {
 
-  groups: Group[]=[];
-  safegroups: Group[]=[];
-  cleargroups: Group[]=[];
+  groups: Company[]=[];
+  safegroups: Company[]=[];
+  cleargroups: Company[]=[];
   Loading: string = 'Список компаний пуст';
   faculties: Faculty[];
   subscription: Subscription;
   subscription1: Subscription;
-  selectedGroup: Group;
+  selectedGroup: Company;
   isButtonHidden: boolean = true;
   Info: string = '';
   source: boolean = false; // true = my server works
@@ -52,7 +53,7 @@ export class GroupsComponent implements OnInit {
         var a = result.json();
           if(a!=null && a.length!=0)
          { this.source = true;
-            var gt = new Array<Group>();
+            var gt = new Array<Company>();
            gt = [];
             gt = a;
            this.groups = gt;
@@ -84,53 +85,53 @@ export class GroupsComponent implements OnInit {
   }
 
 
-  UploadGroups()
-  {
+  // UploadGroups()
+  // {
     
 
-    if ( this.groups.length>0) 
-    {
-      this.groups.forEach(element => {
+  //   if ( this.groups.length>0) 
+  //   {
+  //     this.groups.forEach(element => {
 
-        this.cleargroups.push(element);
+  //       this.cleargroups.push(element);
   
-      });
+  //     });
   
-      this.UpgroupService.UploadGroups(this.cleargroups).subscribe(
-        (result) => {
-            var a = result.json();
-            if(a!=null)
-            {
-              this.Info=a.ToString;
-            }
-            else{
-            }
-      });
+  //     this.UpgroupService.UploadGroups(this.cleargroups).subscribe(
+  //       (result) => {
+  //           var a = result.json();
+  //           if(a!=null)
+  //           {
+  //             this.Info=a.ToString;
+  //           }
+  //           else{
+  //           }
+  //     });
   
   
-      this.cleargroups =[];
+  //     this.cleargroups =[];
   
-    }
+  //   }
     
 
-  }
+  // }
 
-  showWindow() {
-    let group = new Group();
-    group.group_id = 0;
-    this.groups.unshift(group);
-  }
+  // showWindow() {
+  //   let group = new Company();
+  //   group.group_id = 0;
+  //   this.groups.unshift(group);
+  // }
 
 
   Search (searchinput: string)
   {
-          var gc = new Array<Group>();
+          var gc = new Array<Company>();
             gc = [];
             gc = this.groups;
             this.groups = [];
             this.safegroups.forEach(element=>
             {
-             if ( element.group_name.includes(searchinput)) this.groups.push(element);
+             if ( element.c_name.includes(searchinput)) this.groups.push(element);
             })
            this.ref.detectChanges();
 
@@ -142,7 +143,7 @@ export class GroupsComponent implements OnInit {
     this.subscription1.unsubscribe();
   }
 
-  onSelect(group: Group): void {
+  onSelect(group: Company): void {
     this.selectedGroup = group;
   }
 

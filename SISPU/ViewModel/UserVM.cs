@@ -31,10 +31,10 @@ namespace SISPU.ViewModel
             this.year = use.Year;
 
             user_group = new GroupVM();
-            if (use.Group.IsDeleted == false)
-            {
-                user_group = new GroupVM(use.Group);
-            }
+            // if (use.Group.IsDeleted == false)
+            // {
+            //     user_group = new GroupVM(use.Group);
+            // }
         }
 
         public UserVM()
