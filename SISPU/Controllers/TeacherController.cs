@@ -46,33 +46,34 @@ namespace SISPU.Controllers
         [HttpGet("{teacher_name}")]
         public JsonResult GetGroupTimetable([FromRoute] string teacher_name)
         {
-            var teatimetables = repository.GetGroupTimetable(teacher_name);
-            if (teatimetables == null)
-            {
-                return Json(null);
-            }
+            return Json(null);
+            // var teatimetables = repository.GetGroupTimetable(teacher_name);
+            // if (teatimetables == null)
+            // {
+            //     return Json(null);
+            // }
 
-            List<GroupTimetableVM> view = new List<GroupTimetableVM>();
-            Boolean flag = false;
-            foreach (GroupTimetable item in teatimetables)
-            { foreach (GroupTimetableDay ite in item.GTD)
-                {
-                    foreach (DayLesson it in ite.Day.DL)
-                    {
-                        foreach (LessonTeacher i in it.Lesson.LT)
-                        {
-                            if (i.Teacher.TeacherName == teacher_name) flag = true;
-                        }
-                    }
+            // List<GroupTimetableVM> view = new List<GroupTimetableVM>();
+            // Boolean flag = false;
+            // foreach (GroupTimetable item in teatimetables)
+            // { foreach (GroupTimetableDay ite in item.GTD)
+            //     {
+            //         foreach (DayLesson it in ite.Day.DL)
+            //         {
+            //             foreach (LessonTeacher i in it.Lesson.LT)
+            //             {
+            //                 if (i.Teacher.TeacherName == teacher_name) flag = true;
+            //             }
+            //         }
                      
-                }
+            //     }
                     
 
-               if (flag==true) view.Add(new GroupTimetableVM(item));
-                flag = false;
-            }
+            //    if (flag==true) view.Add(new GroupTimetableVM(item));
+            //     flag = false;
+            // }
 
-            return Json(view);
+            // return Json(view);
         }
 
 

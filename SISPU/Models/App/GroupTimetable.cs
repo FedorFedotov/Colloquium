@@ -13,19 +13,16 @@ namespace SISPU.Models
 
     public class GroupTimetable
     {
-        public int Id { get; set; }
-
         public string GroupName { get; set; }
 
-        public List<GroupTimetableDay> GTD { get; set; }
+        public string GroupDepartment { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public string GroupEmployment { get; set; }
 
-        public GroupTimetable()
-        {
-            GTD = new List<GroupTimetableDay>();
-            IsDeleted = false;
-        }
+        public int GroupTasks { get; set; }
+
+        public int GroupAdvice { get; set; }
+
 
     }
 }

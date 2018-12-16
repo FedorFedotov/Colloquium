@@ -34,20 +34,20 @@ namespace SISPU.Models
 
         public List<GroupTimetable> GetGroupTimetable(string teacher_name)
         {
-            var timetables = context.GroupTimetableSet.
-                                    Include(v => v.GTD).
-                                      ThenInclude(v => v.Day).
-                                        ThenInclude(z => z.DL).
-                                          ThenInclude(z => z.Lesson).
-                                            ThenInclude(f => f.LT).ThenInclude(f => f.Teacher).
-                                    Include(v => v.GTD).
-                                      ThenInclude(v => v.Day).
-                                        ThenInclude(z => z.DL).
-                                          ThenInclude(z => z.Lesson).
-                                            ThenInclude(f => f.LA).ThenInclude(f => f.Auditory).
-                                         Where(p => p.IsDeleted == false).ToList();
+            // var timetables = context.GroupTimetableSet.
+            //                         Include(v => v.GTD).
+            //                           ThenInclude(v => v.Day).
+            //                             ThenInclude(z => z.DL).
+            //                               ThenInclude(z => z.Lesson).
+            //                                 ThenInclude(f => f.LT).ThenInclude(f => f.Teacher).
+            //                         Include(v => v.GTD).
+            //                           ThenInclude(v => v.Day).
+            //                             ThenInclude(z => z.DL).
+            //                               ThenInclude(z => z.Lesson).
+            //                                 ThenInclude(f => f.LA).ThenInclude(f => f.Auditory).
+            //                              Where(p => p.IsDeleted == false).ToList();
 
-            return timetables;
+            return null;
         }
 
 

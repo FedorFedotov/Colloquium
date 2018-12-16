@@ -21,3 +21,15 @@ C:\Users\Федор\Desktop\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.AssemblyIn
 C:\Users\Федор\Desktop\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.dll
 C:\Users\Федор\Desktop\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.pdb
 C:\Users\Федор\Desktop\SISPU\SISPU\bin\Debug\netcoreapp2.0\NLog.config
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\bin\Debug\netcoreapp2.0\NLog.config
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\bin\Debug\netcoreapp2.0\SISPU.deps.json
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\bin\Debug\netcoreapp2.0\SISPU.runtimeconfig.json
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\bin\Debug\netcoreapp2.0\SISPU.runtimeconfig.dev.json
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\bin\Debug\netcoreapp2.0\SISPU.dll
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\bin\Debug\netcoreapp2.0\SISPU.pdb
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.csprojAssemblyReference.cache
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.csproj.CoreCompileInputs.cache
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.AssemblyInfoInputs.cache
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.AssemblyInfo.cs
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.dll
+C:\Users\fredd\Desktop\ИГЭУ\Садыков\project\SISPU\SISPU\obj\Debug\netcoreapp2.0\SISPU.pdb

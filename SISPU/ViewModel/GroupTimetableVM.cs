@@ -12,8 +12,11 @@ namespace SISPU.ViewModel
     {
 
         public string group_name;
+        public string group_department;
+        public string group_employment;
+        public int group_tasks;
+        public int group_advice;
 
-        public List<DayVM> days = new List<DayVM>();
 
 
         public GroupTimetableVM(GroupTimetable groupTimetable)
@@ -21,16 +24,14 @@ namespace SISPU.ViewModel
 
             this.group_name = groupTimetable.GroupName;
 
+            this.group_department = groupTimetable.GroupDepartment;
 
-            days = new List<DayVM>();
+            this.group_employment = groupTimetable.GroupEmployment;
 
-            foreach (GroupTimetableDay item in groupTimetable.GTD)
-            {
-                if (item.IsDeleted == false)
-                {
-                    days.Add(new DayVM(item.Day));
-                }
-            }
+            this.group_tasks = groupTimetable.GroupTasks;
+
+            this.group_advice = groupTimetable.GroupAdvice;
+
 
         }
 
