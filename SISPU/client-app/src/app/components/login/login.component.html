@@ -10,8 +10,8 @@
 </div> 
 <div class="container"  >
 	<div class="row" >
-        <p class="text-center" width = "100%"> <img href="#" style="color:black; margin-bottom:350px; margin-left:200px; " class="img-circle"  src="assets/img/soiskatel.png" height="200" width="200" role="button" data-toggle="modal" data-target="#login-modal1">
-            <img href="#" style="color:black; margin-left:200px; margin-top:150px; "class="img-circle"  src=" assets/img/sotrudnik.png" role="button" height=375 width="375" data-toggle="modal" data-target="#login-modal2"></p>
+        <p class="text-center" width = "100%"> <img href="#" style="color:black; margin-bottom:350px; margin-left:200px; " class="img-circle" (click)="Start()" src="assets/img/soiskatel.png" height="200" width="200" role="button" data-toggle="modal" data-target="#login-modal1">
+            <img href="#" style="color:black; margin-left:200px; margin-top:150px; "class="img-circle"  src="assets/img/sotrudnik.png" (click)="Start()"  role="button" height=375 width="375" data-toggle="modal" data-target="#login-modal2"></p>
 	</div>
 </div>
 <!-- END # BOOTSNIP INFO -->
@@ -20,82 +20,76 @@
 <div class="modal fade" id="login-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     	<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header" align="center">
-					<img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<div class="modal-header" align="center" >
+					<img href="#" class="img-circle" id="img_logo" height="400" width="400" style="color:black; margin-left:180px;" src="assets/img/soiskatel.png">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-					</button>
-				</div>
+					</button> 
+                </div>
+                <h5 style=" margin-top:10px; " align="center"> Соискатель </h5>
                 
                 <!-- Begin # DIV Form -->
                 <div id="div-forms">
                 
                     <!-- Begin # Login Form -->
-                    <form id="login-form">
+                    <form *ngIf="login==true" id="login-form1">
 		                <div class="modal-body">
-				    		<div id="div-login-msg">
-                                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-login-msg">Type your username and password.</span>
-                            </div>
-				    		<input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-				    		<input id="login_password" class="form-control" type="password" placeholder="Password" required>
+				    		<input id="login_username" class="form-control" type="text" placeholder="Логин" required>
+                            <input id="login_password" class="form-control" type="password" placeholder="Пароль" required>
                             <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Remember me
+                                <label style=" margin-top:10px; ">
+                                    <input type="checkbox"> Чужой компьютер
                                 </label>
                             </div>
         		    	</div>
 				        <div class="modal-footer">
                             <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Войти</button>
                             </div>
 				    	    <div>
-                                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
-                                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                                <button href="#" id="login_lost_btn" type="button" (click)="Forget()" class="btn btn-link" data-target="#lost-form1">Восстановление пароля</button>
+                                <button id="login_register_btn" type="button" (click)="Register()" class="btn btn-link">Регистрация</button>
                             </div>
 				        </div>
                     </form>
                     <!-- End # Login Form -->
                     
                     <!-- Begin | Lost Password Form -->
-                    <form id="lost-form" style="display:none;">
+                    <form id="lost-form1" *ngIf="forget==true">
     	    		    <div class="modal-body">
 		    				<div id="div-lost-msg">
                                 <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-lost-msg">Type your e-mail.</span>
                             </div>
-		    				<input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
+		    				<input id="lost_email" class="form-control" type="text" placeholder="Ваш е-mail" required>
             			</div>
 		    		    <div class="modal-footer">
                             <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Восстановить</button>
                             </div>
                             <div>
-                                <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
-                                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                                <button id="lost_login_btn" type="button"  (click)="Start()" class="btn btn-link">Войти</button>
+                                <button id="lost_register_btn" type="button" (click)="Register()" class="btn btn-link">Регистрация</button>
                             </div>
 		    		    </div>
                     </form>
                     <!-- End | Lost Password Form -->
                     
                     <!-- Begin | Register Form -->
-                    <form id="register-form" style="display:none;">
+                    <form id="register-form1" *ngIf="register==true">
             		    <div class="modal-body">
-		    				<div id="div-register-msg">
-                                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-register-msg">Register an account.</span>
-                            </div>
-		    				<input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-                            <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
-                            <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+                            <input id="register_username" class="form-control" type="text" placeholder="Ф.И.О." required>
+                            <input style=" margin-top:10px; " id="register_username" class="form-control" type="text" placeholder="Возраст" required>
+                            <input style=" margin-top:10px; " id="register_username" class="form-control" type="text" placeholder="Опыт работы" required>
+                            <input style=" margin-top:10px; " id="register_email" class="form-control" type="text" placeholder="Стек технологий" required>
+                            <input id="register_password" class="form-control" type="password" placeholder="Пароль" required>
+                            <input id="register_password" class="form-control" type="password" placeholder="Пароль повторно" required>
             			</div>
 		    		    <div class="modal-footer">
                             <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Зарегистрироваться</button>
                             </div>
                             <div>
-                                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
-                                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                                    <button id="lost_login_btn" type="button"  (click)="Start()" class="btn btn-link">Войти</button>
                             </div>
 		    		    </div>
                     </form>
@@ -113,81 +107,75 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+                <img class="img-circle" height="400" width="400" style="color:black; margin-left:180px;" id="img_logo" src="assets/img/sotrudnik.png">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
             </div>
+            <h5 style=" margin-top:10px; " align="center"> Компания </h5>
             
             <!-- Begin # DIV Form -->
             <div id="div-forms">
             
                 <!-- Begin # Login Form -->
-                <form id="login-form">
+                <form id="login-form2" *ngIf="login==true">
                     <div class="modal-body">
-                        <div id="div-login-msg">
-                            <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
-                            <span id="text-login-msg">Type your username and password.</span>
-                        </div>
-                        <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-                        <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+                        <input id="login_username" class="form-control" type="text" placeholder="Логин" required>
+                        <input id="login_password" class="form-control" type="password" placeholder="Пароль" required>
                         <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Remember me
+                                <label style=" margin-top:10px; ">
+                                <input type="checkbox"> Чужой компьютер
                             </label>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <div>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Войти</button>
                         </div>
                         <div>
-                            <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
-                            <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                            <button id="login_lost_btn" type="button" (click)="Forget()" class="btn btn-link">Восстановление пароля</button>
+                            <button id="login_register_btn" type="button" (click)="Register()" class="btn btn-link">Регистрация</button>
                         </div>
                     </div>
                 </form>
                 <!-- End # Login Form -->
                 
                 <!-- Begin | Lost Password Form -->
-                <form id="lost-form" style="display:none;">
+                <form id="lost-form2" *ngIf="forget==true">
                     <div class="modal-body">
                         <div id="div-lost-msg">
                             <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
                             <span id="text-lost-msg">Type your e-mail.</span>
                         </div>
-                        <input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
+                        <input id="lost_email" class="form-control" type="text" placeholder="Ваш е-mail" required>
                     </div>
                     <div class="modal-footer">
                         <div>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
-                        </div>
-                        <div>
-                            <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
-                            <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
-                        </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Восстановить</button>
+                            </div>
+                            <div>
+                                <button id="lost_login_btn" type="button"  (click)="Start()" class="btn btn-link">Войти</button>
+                            </div>
                     </div>
                 </form>
                 <!-- End | Lost Password Form -->
                 
                 <!-- Begin | Register Form -->
-                <form id="register-form" style="display:none;">
+                <form id="register-form2" *ngIf="register==true">
                     <div class="modal-body">
-                        <div id="div-register-msg">
-                            <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
-                            <span id="text-register-msg">Register an account.</span>
-                        </div>
-                        <input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-                        <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
-                        <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+
+                        <input id="register_username" class="form-control" type="text" placeholder="Юридическое наименование" required>
+                        <input style=" margin-top:10px; " id="register_email" class="form-control" type="text" placeholder="Почтовый ящик" required>
+                        <input id="register_password" class="form-control" type="password" placeholder="Пароль" required>
+                        <input id="register_password" class="form-control" type="password" placeholder="Пароль повторно" required>
                     </div>
                     <div class="modal-footer">
                         <div>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Зарегистрироваться</button>
                         </div>
                         <div>
-                            <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
-                            <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                                <button id="lost_login_btn" type="button"  (click)="Start()" class="btn btn-link">Войти</button>
+                                <button id="lost_register_btn" type="button" (click)="Register()" class="btn btn-link">Регистрация</button>
                         </div>
                     </div>
                 </form>
