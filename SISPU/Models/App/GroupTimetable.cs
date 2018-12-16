@@ -21,7 +21,15 @@ namespace SISPU.Models
 
         public int GroupTasks { get; set; }
 
+        public string[] GroupTasks2 { get; set; }
+
         public int GroupAdvice { get; set; }
+
+        public string[] GroupAdvice2 { get; set; }
+
+        public string[] Answers { get; set; }
+
+        public string[] Recs { get; set; }
 
 
     }

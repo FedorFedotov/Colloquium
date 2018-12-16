@@ -52,7 +52,11 @@ namespace SISPU.Models
             g1.GroupDepartment  = "Bootcamp";
             g1.GroupEmployment = "Полный день";
             g1.GroupTasks = 26;
-            g1.GroupAdvice = 8;
+            g1.GroupAdvice = 4;
+            g1.GroupTasks2 = new string[] {"public static void main(String[] args)","{","   Integer x =9;","   X += X++ + ++X;","   return;","}"};
+            g1.GroupAdvice2 =  new string[] {"Нам нравятся креативные люди", "Умение работать в команду будет плюсом", "Будте готовы к провокационным вопросам", "Важным аспектом является поведение в стрессовых ситуациях"};
+            g1.Answers = new string[]  {"29","30","27","57"};
+            g1.Recs =  new string[] {"Уверенное знание языка Java", "Опыт использования Gradle", "Знание Docker", "Опыт использования Espresso"};
 
             GroupTimetable g2 = new GroupTimetable();
             g2.GroupName  = "Junior-Developer #2 (Akvelon, Inc. Иваново)";
@@ -60,6 +64,11 @@ namespace SISPU.Models
             g2.GroupEmployment = "Неполный день";
             g2.GroupTasks = 30;
             g2.GroupAdvice = 3;
+            g2.GroupAdvice = 4;
+            g2.GroupTasks2 =  new string[] {"public static void main(String[] args)","{","   Integer x =9;","   X += X++ + ++X;","   return;","}"};
+            g2.GroupAdvice2 =  new string[] {"Нам нравятся креативные люди", "Умение работать в команду будет плюсом", "Будте готовы к провокационным вопросам", "Важным аспектом является поведение в стрессовых ситуациях"};
+            g2.Answers =  new string[] {"29","30","27","57"};
+            g2.Recs =  new string[] {"Уверенное знание языка Java", "Опыт использования Gradle", "Знание Docker", "Опыт использования Espresso"};
 
             GroupTimetable g3 = new GroupTimetable();
             g3.GroupName  = "Junior-Developer #1 (Involta. Иваново)";
@@ -67,6 +76,11 @@ namespace SISPU.Models
             g3.GroupEmployment = "Неполный день";
             g3.GroupTasks = 15;
             g3.GroupAdvice = 0;
+            g3.GroupAdvice = 4;
+            g3.GroupTasks2 =  new string[] {"public static void main(String[] args)","{","   Integer x =9;","   X += X++ + ++X;","   return;","}"};
+            g3.GroupAdvice2 = new string[]  {"Нам нравятся креативные люди", "Умение работать в команду будет плюсом", "Будте готовы к провокационным вопросам", "Важным аспектом является поведение в стрессовых ситуациях"};
+            g3.Answers = new string[]  {"29","30","27","57"};
+            g3.Recs =  new string[] {"Уверенное знание языка Java", "Опыт использования Gradle", "Знание Docker", "Опыт использования Espresso"};
 
             GroupTimetable g4 = new GroupTimetable();
             g4.GroupName  = "Senior-Developer #1 (Akvelon, Inc. Иваново)";
@@ -74,6 +88,11 @@ namespace SISPU.Models
             g4.GroupEmployment = "Полный день";
             g4.GroupTasks = 19;
             g4.GroupAdvice = 10;
+            g4.GroupAdvice = 4;
+            g4.GroupTasks2 = new string[]  {"public static void main(String[] args)","{","   Integer x =9;","   X += X++ + ++X;","   return;","}"};
+            g4.GroupAdvice2 = new string[]  {"Нам нравятся креативные люди", "Умение работать в команду будет плюсом", "Будте готовы к провокационным вопросам", "Важным аспектом является поведение в стрессовых ситуациях"};
+            g4.Answers =  new string[] {"29","30","27","57"};
+            g4.Recs =  new string[] {"Уверенное знание языка Java", "Опыт использования Gradle", "Знание Docker", "Опыт использования Espresso"};
 
             GroupTimetable g5 = new GroupTimetable();
             g5.GroupName  = "Senior-Developer #1 (Involta. Иваново)";
@@ -81,6 +100,11 @@ namespace SISPU.Models
             g5.GroupEmployment = "Полный день";
             g5.GroupTasks = 20;
             g5.GroupAdvice = 18;
+            g5.GroupAdvice = 4;
+            g5.GroupTasks2 = new string[]  {"public static void main(String[] args)","{","   Integer x =9;","   X += X++ + ++X;","   return;","}"};
+            g5.GroupAdvice2 = new string[]  {"Нам нравятся креативные люди", "Умение работать в команду будет плюсом", "Будте готовы к провокационным вопросам", "Важным аспектом является поведение в стрессовых ситуациях"};
+            g5.Answers =  new string[] {"29","30","27","57"};
+            g5.Recs =  new string[] {"Уверенное знание языка Java", "Опыт использования Gradle", "Знание Docker", "Опыт использования Espresso"};
 
             grouptimetables.Add(g1);
             grouptimetables.Add(g2);

@@ -1,11 +1,14 @@
+
 import { Injectable, Inject, Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { Groupchat } from '../../classes/groupchat'
-import { Message } from '../../classes/message'
-import { User } from '../../classes/user'
 import { CompleterService, CompleterData } from 'ng2-completer';
 import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
-import { ChatService } from '../../services/chat-service/chat.service';
+import { Grouptimetable } from '../../classes/grouptimetable'
 
+import { Teacher} from '../../classes/teacher';
+import { Auditory} from '../../classes/auditory';
+import { Lesson} from '../../classes/lesson';
+import { Day} from '../../classes/day';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-chat',
@@ -14,33 +17,93 @@ import { ChatService } from '../../services/chat-service/chat.service';
 })
 export class ChatComponent implements OnInit {
 
-  @Input() groupchat: Groupchat;
-  @Output() groupchatDeleted = new EventEmitter();
-  messages: Message[];
-  constructor(private ref: ChangeDetectorRef, private ChatService: ChatService) { }
+  @Input() grouptimetable: Grouptimetable;
+  @Input() source: boolean;
+ // @Output() timetableDeleted = new EventEmitter();
+  edit:boolean = false;
+  edit2:boolean = false;
+  time: Date = new Date(); 
+  pparity: number = 1; 
+  pday: number = 0;
+
+  constructor(private ref: ChangeDetectorRef) {
+   }
 
   ngOnInit() {
+    if ( this.time.getMonth()<8)
+    {
+      var time2 = new Date(this.time.getFullYear()-1, 8, 1);
+      var day = time2.getUTCDay();
+    }
+    else 
+    {
+      var time2 = new Date(this.time.getFullYear(), 8, 1);
+      var day = time2.getUTCDay();
+    }
 
-    
+      var today = new Date(this.time.getFullYear(), this.time.getMonth(),this.time.getDate()); 
+      var chet: boolean;
+      if (day==6) 
+      {
+        time2.setDate(time2.getDate()+2);
+      }
+        do
+        {
+          time2.setDate(time2.getDate()+1);
+        }
+        while(time2.getUTCDay()!=0)
+        chet = true;
+
+        do
+        {
+          time2.setDate(time2.getDate()+7);
+          if (chet == true) chet = false;
+          else chet = true;
+        }
+        while((time2!=today)&&(time2<today))
+
+        if (time2==today) 
+        {
+          if (chet=true) this.pparity=2;
+          else this.pparity=1;
+
+          this.pday = today.getDay();
+
+          this.ref.detectChanges();
+        }
+        else
+        {
+          if (chet=true) this.pparity=1;
+          else this.pparity=2;
+
+          this.pday = today.getDay();
+
+          this.ref.detectChanges();
+        }
+
+
+      
   }
 
-  Check()
+  Edit()
   {
-    this.ChatService.GetMessages(this.groupchat.groupchat_name).subscribe(
-      (result) => {
-          var a = result.json();
-          if(a!=null && a.length!=0)
-          { 
-            console.log(a);
-            var gc = new Array<Message>();
-            gc = [];
-            gc = a;
-            this.messages = gc;
-            this.ref.detectChanges();
-          }
-          else{
-          }
-    }); 
+    if(this.edit==false) this.edit=true;
+    else this.edit=false;
+    
+
+    this.ref.detectChanges();
   }
+
+  Edit2()
+  {
+
+    if(this.edit2==false) this.edit2=true;
+    else this.edit2=false;
+    if(this.edit==false) this.edit=true;
+    else this.edit=false;
+    this.ref.detectChanges();
+  }
+
+
 
 }
